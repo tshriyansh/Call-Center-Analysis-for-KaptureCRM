@@ -8,7 +8,7 @@ public class callCenterAnalysis {
         try {
             // Connect to the database
             // Port, username, Password have to enter by Kapture
-            Connection con = DriverManager.getConnection("jdbc:postgresql://host:port/database", "username", "password");
+            Connection con = DriverManager.getConnection("jdbc:callCenterAnalysis://localhost:3306", "tshriyansh", "password"); //instruction to Kapture : Please use your connection
 
             // Hour of the day when the call volume is highest
             Statement stmt1 = con.createStatement();
