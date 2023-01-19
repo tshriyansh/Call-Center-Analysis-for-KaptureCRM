@@ -1,11 +1,13 @@
 // this will be java file for the code , I connected this with sql file and got good responce which was similar to the output of the data
-
+// code by Shriyansh Thakur
 import java.sql.*;
+import java.util.*;
 
-public class CallCenterAnalytics {
+public class callCenterAnalysis {
     public static void main(String[] args) {
         try {
             // Connect to the database
+            // Port, username, Password have to enter by Kapture
             Connection con = DriverManager.getConnection("jdbc:postgresql://host:port/database", "username", "password");
 
             // Hour of the day when the call volume is highest
@@ -17,7 +19,7 @@ public class CallCenterAnalytics {
             rs1.close();
             stmt1.close();
 
-            // Hour of the day when the calls are longest
+            // Hour of the day when the calls are longest (Code By Shriyansh Thakur)
             Statement stmt2 = con.createStatement();
             ResultSet rs2 = stmt2.executeQuery("SELECT EXTRACT(HOUR FROM start_time) AS hour, SUM(duration) FROM call GROUP BY hour ORDER BY SUM(duration) DESC LIMIT 1");
             if (rs2.next()) {
